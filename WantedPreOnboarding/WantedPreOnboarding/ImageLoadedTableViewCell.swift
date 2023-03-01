@@ -24,29 +24,65 @@ final class ImageLoadedTableViewCell: UITableViewCell {
   }
   // MARK: - UI Components
   
-  private let tableCellimageView = UIImageView()
+  private let tableCellimageView = UIImageView().then {
+    $0.backgroundColor = .brown
+  }
   private let progressBar = UIProgressView().then {
     $0.progress = 0.5
   }
   private let tableCellButton = UIButton().then {
-    $0.layer.cornerRadius = 10
+    $0.layer.cornerRadius = 5
     $0.backgroundColor = .systemBlue
     $0.setTitle("Load", for: .normal)
   }
+  private let imageViewsView = UIView()
   private let progressView = UIView()
   private let buttonView = UIView()
-  private lazy var tableCellStackView = UIStackView(arrangedSubviews: [tableCellimageView, progressBar, tableCellButton]).then {
+  private lazy var tableCellStackView = UIStackView(arrangedSubviews: [imageViewsView, progressView, buttonView]).then {
+    $0.translatesAutoresizingMaskIntoConstraints = false
     $0.axis = .horizontal
-//    $0.spacing = 0
+    $0.alignment = .fill
+    $0.distribution = .equalSpacing
+    $0.spacing = 8
   }
 }
 
 extension ImageLoadedTableViewCell {
   private func setLayout() {
-    contentView.backgroundColor = .clear
     contentView.addSubviews(tableCellStackView)
+    imageViewsView.addSubviews(tableCellimageView)
+    progressView.addSubviews(progressBar)
+    buttonView.addSubviews(tableCellButton)
     tableCellStackView.snp.makeConstraints {
+      $0.top.leading.trailing.bottom.equalToSuperview()
+    }
+    imageViewsView.snp.makeConstraints {
+      $0.top.bottom.equalToSuperview()
+      $0.leading.equalToSuperview()
+      $0.width.equalTo(100)
+    }
+    progressView.snp.makeConstraints {
+      $0.top.bottom.equalToSuperview()
+      $0.leading.equalTo(imageViewsView.snp.trailing)
+      $0.width.equalTo(200)
+    }
+    buttonView.snp.makeConstraints {
+      $0.top.bottom.equalToSuperview()
+      $0.leading.equalTo(progressView.snp.trailing)
+      $0.trailing.equalToSuperview()
+    }
+    tableCellimageView.snp.makeConstraints {
       $0.center.equalToSuperview()
+    }
+    progressBar.snp.makeConstraints {
+      $0.leading.trailing.equalToSuperview()
+      $0.height.equalTo(5)
+      $0.centerY.equalToSuperview()
+    }
+    tableCellButton.snp.makeConstraints {
+      $0.leading.trailing.equalToSuperview()
+      $0.height.equalTo(40)
+      $0.centerY.equalToSuperview()
     }
   }
   

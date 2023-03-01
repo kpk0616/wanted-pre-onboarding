@@ -12,7 +12,7 @@ import Then
 final class ViewController: UIViewController {
   
   // MARK: - Variables
-  private let imageList: [ImageLoadedModel] = []
+  private let imageList: [ImageLoadedModel] = [ImageLoadedModel(image: ""),ImageLoadedModel(image: ""),ImageLoadedModel(image: ""),ImageLoadedModel(image: ""),ImageLoadedModel(image: "")]
   
   // MARK: - UI Components
   
@@ -34,6 +34,7 @@ final class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setLayout()
+    register()
   }
   
   private func register() {
@@ -45,7 +46,7 @@ final class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 100
+    return 70
   }
 }
 
@@ -70,16 +71,22 @@ extension ViewController {
   
   private func setLayout() {
     view.backgroundColor = .white
-    view.addSubviews(loadImageButton)
+    view.addSubviews(imageTableView, loadImageButton)
+//    imageTableView.backgroundColor = .green
+    imageTableView.snp.makeConstraints {
+      $0.top.equalTo(view.safeAreaLayoutGuide).inset(10)
+      $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(10)
+      $0.height.equalTo(imageList.count * 70)
+    }
     loadImageButton.snp.makeConstraints {
-      $0.top.equalTo(view.safeAreaLayoutGuide).inset(20)
+      $0.top.equalTo(imageTableView.snp.bottom).offset(20)
       $0.centerX.equalToSuperview()
       $0.leading.trailing.equalToSuperview().inset(10)
       $0.height.equalTo(45)
     }
   }
-  // MARK: - Extra functions
-  
+  // MARK: - General functions
+
   @objc
   private func loadImage() {
     print("load image")
