@@ -17,7 +17,7 @@ final class ViewController: UIViewController {
   
   private let loadImageButton = UIButton().then {
     $0.layer.cornerRadius = 10
-    $0.backgroundColor = .blue
+    $0.backgroundColor = .systemBlue
     $0.setTitle("Load All Images", for: .normal)
   }
   // MARK: - Life Cycle
@@ -31,6 +31,12 @@ final class ViewController: UIViewController {
 extension ViewController {
   private func setLayout() {
     view.backgroundColor = .white
-    view.addSubview(loadImageButton)
+    view.addSubviews(loadImageButton)
+    loadImageButton.snp.makeConstraints {
+      $0.top.equalTo(view.safeAreaLayoutGuide).inset(20)
+      $0.centerX.equalToSuperview()
+      $0.leading.trailing.equalToSuperview().inset(10)
+      $0.height.equalTo(45)
+    }
   }
 }
