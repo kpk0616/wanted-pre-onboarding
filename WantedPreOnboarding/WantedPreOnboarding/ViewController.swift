@@ -11,9 +11,17 @@ import Then
 
 final class ViewController: UIViewController {
   
+  // MARK: - Variables
+  private let imageList = []
+  
   // MARK: - UI Components
   
-  private let imageTableView = UITableView()
+  private let imageTableView = UITableView().then {
+    $0.backgroundColor = .clear
+    $0.separatorStyle = .none
+    $0.delegate = self
+    $0.dataSource = self
+  }
   
   private lazy var loadImageButton = UIButton().then {
     $0.layer.cornerRadius = 10
@@ -28,6 +36,30 @@ final class ViewController: UIViewController {
     setLayout()
   }
 }
+
+// MARK: - TableView
+
+extension ViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 100
+  }
+}
+
+extension ViewController: UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    imageList.count
+  }
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let restStopCell = tableView.dequeueReusableCell(
+      withIdentifier: RestStopLocationTableViewCell.identifier, for: indexPath)
+            as? RestStopLocationTableViewCell else { return UITableViewCell() }
+    
+    restStopCell.restStopDataBind(model: imageList[indexPath.row])
+    return restStopCell
+  }
+}
+
+// MARK: - Extension
 
 extension ViewController {
   // MARK: - Layout

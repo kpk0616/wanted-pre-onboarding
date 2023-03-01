@@ -17,6 +17,7 @@
 		B806108829AF6C2E00961D97 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = B806108729AF6C2E00961D97 /* Then */; };
 		B806108B29AF6DA900961D97 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B806108A29AF6DA900961D97 /* UIView+Extension.swift */; };
 		B806108D29AF6FC500961D97 /* ImageLoadedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B806108C29AF6FC500961D97 /* ImageLoadedModel.swift */; };
+		B806109029AF710B00961D97 /* ImageLoadedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B806108F29AF710B00961D97 /* ImageLoadedTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B806107D29AF6B1E00961D97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B806108A29AF6DA900961D97 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B806108C29AF6FC500961D97 /* ImageLoadedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadedModel.swift; sourceTree = "<group>"; };
+		B806108F29AF710B00961D97 /* ImageLoadedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadedTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				B806108929AF6D9300961D97 /* Global */,
 				B806107329AF6B1C00961D97 /* ViewController.swift */,
 				B806108C29AF6FC500961D97 /* ImageLoadedModel.swift */,
+				B806108F29AF710B00961D97 /* ImageLoadedTableViewCell.swift */,
 			);
 			path = WantedPreOnboarding;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B806109029AF710B00961D97 /* ImageLoadedTableViewCell.swift in Sources */,
 				B806107429AF6B1C00961D97 /* ViewController.swift in Sources */,
 				B806107029AF6B1C00961D97 /* AppDelegate.swift in Sources */,
 				B806108D29AF6FC500961D97 /* ImageLoadedModel.swift in Sources */,
