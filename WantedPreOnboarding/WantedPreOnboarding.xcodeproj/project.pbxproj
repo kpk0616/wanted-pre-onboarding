@@ -64,14 +64,9 @@
 		B806106E29AF6B1C00961D97 /* WantedPreOnboarding */ = {
 			isa = PBXGroup;
 			children = (
+				B806108E29AF6FF000961D97 /* Application */,
 				B806108929AF6D9300961D97 /* Global */,
-				B806106F29AF6B1C00961D97 /* AppDelegate.swift */,
-				B806107129AF6B1C00961D97 /* SceneDelegate.swift */,
 				B806107329AF6B1C00961D97 /* ViewController.swift */,
-				B806107529AF6B1C00961D97 /* Main.storyboard */,
-				B806107829AF6B1E00961D97 /* Assets.xcassets */,
-				B806107A29AF6B1E00961D97 /* LaunchScreen.storyboard */,
-				B806107D29AF6B1E00961D97 /* Info.plist */,
 				B806108C29AF6FC500961D97 /* ImageLoadedModel.swift */,
 			);
 			path = WantedPreOnboarding;
@@ -83,6 +78,19 @@
 				B806108A29AF6DA900961D97 /* UIView+Extension.swift */,
 			);
 			path = Global;
+			sourceTree = "<group>";
+		};
+		B806108E29AF6FF000961D97 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B806106F29AF6B1C00961D97 /* AppDelegate.swift */,
+				B806107129AF6B1C00961D97 /* SceneDelegate.swift */,
+				B806107529AF6B1C00961D97 /* Main.storyboard */,
+				B806107829AF6B1E00961D97 /* Assets.xcassets */,
+				B806107A29AF6B1E00961D97 /* LaunchScreen.storyboard */,
+				B806107D29AF6B1E00961D97 /* Info.plist */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
