@@ -15,10 +15,11 @@ final class ViewController: UIViewController {
   
   private let imageTableView = UITableView()
   
-  private let loadImageButton = UIButton().then {
+  private lazy var loadImageButton = UIButton().then {
     $0.layer.cornerRadius = 10
     $0.backgroundColor = .systemBlue
     $0.setTitle("Load All Images", for: .normal)
+    $0.addTarget(self, action: #selector(loadImage), for: .touchUpInside)
   }
   // MARK: - Life Cycle
 
@@ -29,6 +30,8 @@ final class ViewController: UIViewController {
 }
 
 extension ViewController {
+  // MARK: - Layout
+  
   private func setLayout() {
     view.backgroundColor = .white
     view.addSubviews(loadImageButton)
@@ -38,5 +41,11 @@ extension ViewController {
       $0.leading.trailing.equalToSuperview().inset(10)
       $0.height.equalTo(45)
     }
+  }
+  // MARK: - Extra functions
+  
+  @objc
+  private func loadImage() {
+    print("load image")
   }
 }

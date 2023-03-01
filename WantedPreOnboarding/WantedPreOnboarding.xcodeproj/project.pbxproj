@@ -16,6 +16,7 @@
 		B806108529AF6C1A00961D97 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B806108429AF6C1A00961D97 /* SnapKit */; };
 		B806108829AF6C2E00961D97 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = B806108729AF6C2E00961D97 /* Then */; };
 		B806108B29AF6DA900961D97 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B806108A29AF6DA900961D97 /* UIView+Extension.swift */; };
+		B806108D29AF6FC500961D97 /* ImageLoadedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B806108C29AF6FC500961D97 /* ImageLoadedModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		B806107B29AF6B1E00961D97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B806107D29AF6B1E00961D97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B806108A29AF6DA900961D97 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		B806108C29AF6FC500961D97 /* ImageLoadedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadedModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				B806107829AF6B1E00961D97 /* Assets.xcassets */,
 				B806107A29AF6B1E00961D97 /* LaunchScreen.storyboard */,
 				B806107D29AF6B1E00961D97 /* Info.plist */,
+				B806108C29AF6FC500961D97 /* ImageLoadedModel.swift */,
 			);
 			path = WantedPreOnboarding;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			files = (
 				B806107429AF6B1C00961D97 /* ViewController.swift in Sources */,
 				B806107029AF6B1C00961D97 /* AppDelegate.swift in Sources */,
+				B806108D29AF6FC500961D97 /* ImageLoadedModel.swift in Sources */,
 				B806108B29AF6DA900961D97 /* UIView+Extension.swift in Sources */,
 				B806107229AF6B1C00961D97 /* SceneDelegate.swift in Sources */,
 			);
