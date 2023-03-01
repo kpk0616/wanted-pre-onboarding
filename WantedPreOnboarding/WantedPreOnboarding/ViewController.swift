@@ -12,11 +12,11 @@ import Then
 final class ViewController: UIViewController {
   
   // MARK: - Variables
-  private let imageList = []
+  private let imageList: [ImageLoadedModel] = []
   
   // MARK: - UI Components
   
-  private let imageTableView = UITableView().then {
+  private lazy var imageTableView = UITableView().then {
     $0.backgroundColor = .clear
     $0.separatorStyle = .none
     $0.delegate = self
@@ -35,6 +35,10 @@ final class ViewController: UIViewController {
     super.viewDidLoad()
     setLayout()
   }
+  
+  private func register() {
+    imageTableView.register(ImageLoadedTableViewCell.self, forCellReuseIdentifier: ImageLoadedTableViewCell.identifier)
+  }
 }
 
 // MARK: - TableView
@@ -50,12 +54,12 @@ extension ViewController: UITableViewDataSource {
     imageList.count
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let restStopCell = tableView.dequeueReusableCell(
-      withIdentifier: RestStopLocationTableViewCell.identifier, for: indexPath)
-            as? RestStopLocationTableViewCell else { return UITableViewCell() }
+    guard let imageLoadedCell = tableView.dequeueReusableCell(
+      withIdentifier: ImageLoadedTableViewCell.identifier, for: indexPath)
+            as? ImageLoadedTableViewCell else { return UITableViewCell() }
     
-    restStopCell.restStopDataBind(model: imageList[indexPath.row])
-    return restStopCell
+    imageLoadedCell.imageDataBind(model: imageList[indexPath.row])
+    return imageLoadedCell
   }
 }
 
