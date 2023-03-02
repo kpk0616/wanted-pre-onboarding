@@ -24,26 +24,27 @@ final class ImageLoadedTableViewCell: UITableViewCell {
   }
   // MARK: - UI Components
   
+  private let imageViewsView = UIView()
+  private let progressView = UIView()
+  private let buttonView = UIView()
   private let tableCellimageView = UIImageView().then {
-    $0.backgroundColor = .brown
+    $0.image = UIImage(systemName: "photo")
+    $0.image?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
   }
   private let progressBar = UIProgressView().then {
     $0.progress = 0.5
   }
-  private let tableCellButton = UIButton().then {
+  private lazy var tableCellButton = UIButton().then {
     $0.layer.cornerRadius = 5
     $0.backgroundColor = .systemBlue
     $0.setTitle("Load", for: .normal)
+    $0.addTarget(self, action: #selector(touchUpLoadButton), for: .touchUpInside)
   }
-  private let imageViewsView = UIView()
-  private let progressView = UIView()
-  private let buttonView = UIView()
   private lazy var tableCellStackView = UIStackView(arrangedSubviews: [imageViewsView, progressView, buttonView]).then {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.axis = .horizontal
-    $0.alignment = .fill
-    $0.distribution = .equalSpacing
-    $0.spacing = 8
+    $0.alignment = .center
+    $0.distribution = .fillProportionally
   }
 }
 
@@ -72,6 +73,8 @@ extension ImageLoadedTableViewCell {
       $0.trailing.equalToSuperview()
     }
     tableCellimageView.snp.makeConstraints {
+      $0.width.equalTo(90)
+      $0.height.equalTo(70)
       $0.center.equalToSuperview()
     }
     progressBar.snp.makeConstraints {
@@ -87,6 +90,11 @@ extension ImageLoadedTableViewCell {
   }
   
   func imageDataBind(model: ImageLoadedModel) {
-    tableCellimageView.image = UIImage(named: model.image)
+//    tableCellimageView.image = UIImage(named: model.image)
+  }
+  
+  @objc
+  private func touchUpLoadButton() {
+    print("touch up load")
   }
 }
