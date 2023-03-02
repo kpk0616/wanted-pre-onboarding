@@ -12,7 +12,7 @@ import Then
 final class ViewController: UIViewController {
   
   // MARK: - Variables
-  private let imageList: [ImageLoadedModel] = [ImageLoadedModel(image: ""),ImageLoadedModel(image: ""),ImageLoadedModel(image: ""),ImageLoadedModel(image: ""),ImageLoadedModel(image: "")]
+  private let imageList: [ImageLoadedModel] = [ImageLoadedModel(image: "https://res.cloudinary.com/demo/image/upload/sample.jpg"),ImageLoadedModel(image: "https://res.cloudinary.com/demo/basketball_shot.jpg"),ImageLoadedModel(image: "https://demo-res.cloudinary.com/image/upload/w_300/ltepu4mm0qzw6lkfxt1m.jpg"),ImageLoadedModel(image: "https://picsum.photos/id/119/3264/2176"),ImageLoadedModel(image: "https://picsum.photos/id/12/2500/1667")]
   
   // MARK: - UI Components
   
@@ -58,7 +58,6 @@ extension ViewController: UITableViewDataSource {
     guard let imageLoadedCell = tableView.dequeueReusableCell(
       withIdentifier: ImageLoadedTableViewCell.identifier, for: indexPath)
             as? ImageLoadedTableViewCell else { return UITableViewCell() }
-    
     imageLoadedCell.imageDataBind(model: imageList[indexPath.row])
     return imageLoadedCell
   }
@@ -72,7 +71,6 @@ extension ViewController {
   private func setLayout() {
     view.backgroundColor = .white
     view.addSubviews(imageTableView, loadImageButton)
-//    imageTableView.backgroundColor = .green
     imageTableView.snp.makeConstraints {
       $0.top.equalTo(view.safeAreaLayoutGuide).inset(10)
       $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(10)
